@@ -1,0 +1,280 @@
+--------------------------------------------------------------------------------
+Section 0 - Line up
+--------------------------------------------------------------------------------
+Player 0 (P0): E0, Collude
+        Always collude.
+Player 1 (P1): cinco, Collude, Betray Selectively
+        Collude first two rounds, betray every three rounds, but Betray every ti
+        me opponent betrays in the previous round.
+Player 2 (P2): cinco, Collude every 3rd
+        Collude, then betray 2 times, then collude again(repeat back to betray 2
+         times).
+Player 3 (P3): cinco, Collude but retaliate
+        Collude first round. If opponent betrays, collude next round and then be
+        tray round after that. Also, betray every 4th round.
+--------------------------------------------------------------------------------
+Section 1 - Player vs. Player
+--------------------------------------------------------------------------------
+Each column shows pts//round earned against each other player:
+             P0     P1     P2     P3
+vs. P0 :      0     32     66     24
+vs. P1 :   -164      0   -215   -210
+vs. P2 :   -334   -215      0   -282
+vs. P3 :   -123    -63    -31      0
+TOTAL  :   -621   -246   -180   -468
+--------------------------------------------------------------------------------
+Section 2 - Leaderboard
+--------------------------------------------------------------------------------
+Average points per round:
+Team name (P#):  Score      with strategy name
+cinco     (P2):        -45 points with Collude every 3rd                       
+cinco     (P1):        -62 points with Collude, Betray Selectively             
+cinco     (P3):       -117 points with Collude but retaliate                   
+E0        (P0):       -156 points with Collude                                 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+example0--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'E0'
+strategy_name = 'Collude'
+strategy_description = 'Always collude.'
+    
+def move(my_history, their_history, my_score, their_score):
+    '''Make my move based on the history with this player.
+    
+    history: a string with one letter (c or b) per round that has been played with this opponent.
+    their_history: a string of the same length as history, possibly empty. 
+    The first round between these two players is my_history[0] and their_history[0]
+    The most recent round is my_history[-1] and their_history[-1]
+    
+    Returns 'c' or 'b' for collude or betray.
+    '''
+    
+    # This player always colludes.
+    return 'c'
+    --------------------------------------------------------------------------------
+example1--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'cinco'
+strategy_name = 'Collude, Betray Selectively'
+strategy_description = 'Collude first two rounds, betray every three rounds, but Betray every time opponent betrays in the previous round.'
+    
+def move(my_history, their_history, my_score, their_score):
+  '''Collude first two rounds, betray every three rounds, and make a move based on the history with this player.
+  
+  history: a string with one letter (c or b) per round that has been played with this opponent.
+  their_history: a string of the same length as history, possibly empty. 
+  The first round between these two players is my_history[0] and their_history[0]
+  The most recent round is my_history[-1] and their_history[-1]
+  
+  Returns 'c' or 'b' for collude or betray.
+  '''
+  if len(my_history) <= 1: # It's the first /second round; collude.
+    return 'c'
+  elif (len(my_history)) % 3 == 0:
+    return 'b'
+  elif their_history[-1]=='b':
+    return 'b'
+  else:
+    return 'c'
+
+--------------------------------------------------------------------------------
+example2--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'cinco'
+strategy_name = 'Collude every 3rd'
+strategy_description = 'Collude, then betray 2 times, then collude again(repeat back to betray 2 times).'
+    
+def move(my_history, their_history, my_score, their_score):
+  '''Make my move based on the history with this player.
+  
+  history: a string with one letter (c or b) per round that has been played with this opponent.
+  their_history: a string of the same length as history, possibly empty. 
+  The first round between these two players is my_history[0] and their_history[0]
+  The most recent round is my_history[-1] and their_history[-1]
+  
+  Returns 'c' or 'b' for collude or betray.
+  '''
+  # This player colludes every 3rd round (first round is round #0).
+  if len(my_history)%3 == 0:
+    return 'c'
+  else:
+    return 'b'
+    --------------------------------------------------------------------------------
+example3--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'cinco'
+strategy_name = 'Collude but retaliate'
+strategy_description = '''Collude first round. If opponent betrays, collude next round and then betray round after that. Also, betray every 4th round.
+.'''
+def move(my_history, their_history, my_score, their_score):
+  '''Make my move based on the history with this player.
+  
+  history: a string with one letter (c or b) per round that has been played with this opponent.
+  their_history: a string of the same length as history, possibly empty. 
+  The first round between these two players is my_history[0] and their_history[0]
+  The most recent round is my_history[-1] and their_history[-1]
+  
+  Returns 'c' or 'b' for collude or betray.
+  '''
+  if len(my_history)==0: # It's the first round; collude.
+    return 'c'
+  elif my_history[-1]=='c' and their_history[0]=='b':
+    return 'b' # Betray if they were severely punished last time,
+  elif len(my_history)%4 == 0:
+    return 'b'
+  else:
+    return 'c' # otherwise collude. --------------------------------------------------------------------------------
+Section 3 - Game Data for Team E0
+--------------------------------------------------------------------------------
+-164 pt//round: E0(P0) "Collude"
+32 pt//ound: cinco(P1) "Collude, Betray Selectively"
+CCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
+CCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
+
+CcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
+CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
+
+--------------------------------------------------------------------------------
+-334 pt//round: E0(P0) "Collude"
+66 pt//ound: cinco(P2) "Collude every 3rd"
+CccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCc
+CBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCB
+
+cCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCcc
+BCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBB
+
+--------------------------------------------------------------------------------
+-123 pt//round: E0(P0) "Collude"
+24 pt//ound: cinco(P3) "Collude but retaliate"
+CCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCC
+CCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCC
+
+cCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCC
+BCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team cinco
+--------------------------------------------------------------------------------
+32 pt//round: cinco(P1) "Collude, Betray Selectively"
+-164 pt//ound: E0(P0) "Collude"
+CCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
+CCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
+
+CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
+CcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
+
+--------------------------------------------------------------------------------
+-215 pt//round: cinco(P1) "Collude, Betray Selectively"
+-215 pt//ound: cinco(P2) "Collude every 3rd"
+CcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBc
+CBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcB
+
+bBcbBcbBcbBcbBcbBcbBcbBcbB
+bcBbcBbcBbcBbcBbcBbcBbcBbc
+
+--------------------------------------------------------------------------------
+-63 pt//round: cinco(P1) "Collude, Betray Selectively"
+-210 pt//ound: cinco(P3) "Collude but retaliate"
+CCCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBC
+CCCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccC
+
+cBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCB
+BcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCc
+
+cBBCcBCCbBCBcBBCcBCCbBCBcBBCcBC
+BccCBcCCbcCcBccCBcCCbcCcBccCBcC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team cinco
+--------------------------------------------------------------------------------
+66 pt//round: cinco(P2) "Collude every 3rd"
+-334 pt//ound: E0(P0) "Collude"
+CBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCB
+CccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCc
+
+BCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBB
+cCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCcc
+
+--------------------------------------------------------------------------------
+-215 pt//round: cinco(P2) "Collude every 3rd"
+-215 pt//ound: cinco(P1) "Collude, Betray Selectively"
+CBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcB
+CcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBc
+
+bcBbcBbcBbcBbcBbcBbcBbcBbc
+bBcbBcbBcbBcbBcbBcbBcbBcbB
+
+--------------------------------------------------------------------------------
+-31 pt//round: cinco(P2) "Collude every 3rd"
+-282 pt//ound: cinco(P3) "Collude but retaliate"
+CBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCB
+CccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCc
+
+bCBBcBBCbBCBbCBBcBBCbBC
+bCccBccCbcCcbCccBccCbcC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team cinco
+--------------------------------------------------------------------------------
+24 pt//round: cinco(P3) "Collude but retaliate"
+-123 pt//ound: E0(P0) "Collude"
+CCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCC
+CCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCC
+
+BCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCC
+cCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCC
+
+--------------------------------------------------------------------------------
+-210 pt//round: cinco(P3) "Collude but retaliate"
+-63 pt//ound: cinco(P1) "Collude, Betray Selectively"
+CCCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccC
+CCCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBC
+
+BcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCc
+cBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCB
+
+BccCBcCCbcCcBccCBcCCbcCcBccCBcC
+cBBCcBCCbBCBcBBCcBCCbBCBcBBCcBC
+
+--------------------------------------------------------------------------------
+-282 pt//round: cinco(P3) "Collude but retaliate"
+-31 pt//ound: cinco(P2) "Collude every 3rd"
+CccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCc
+CBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCB
+
+bCccBccCbcCcbCccBccCbcC
+bCBBcBBCbBCBbCBBcBBCbBC
+
+--------------------------------------------------------------------------------
