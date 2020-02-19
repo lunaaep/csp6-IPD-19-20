@@ -18,16 +18,16 @@ Section 1 - Player vs. Player
 Each column shows pts//round earned against each other player:
              P0     P1     P2     P3
 vs. P0 :      0     32     66     24
-vs. P1 :   -164      0   -215   -210
-vs. P2 :   -334   -215      0   -282
-vs. P3 :   -123    -63    -31      0
-TOTAL  :   -621   -246   -180   -468
+vs. P1 :   -163      0   -213   -210
+vs. P2 :   -334   -218      0   -282
+vs. P3 :   -124    -62    -34      0
+TOTAL  :   -621   -248   -181   -468
 --------------------------------------------------------------------------------
 Section 2 - Leaderboard
 --------------------------------------------------------------------------------
 Average points per round:
 Team name (P#):  Score      with strategy name
-cinco     (P2):        -45 points with Collude every 3rd                       
+cinco     (P2):        -46 points with Collude every 3rd                       
 cinco     (P1):        -62 points with Collude, Betray Selectively             
 cinco     (P3):       -117 points with Collude but retaliate                   
 E0        (P0):       -156 points with Collude                                 
@@ -155,13 +155,13 @@ def move(my_history, their_history, my_score, their_score):
     return 'c' # otherwise collude. --------------------------------------------------------------------------------
 Section 3 - Game Data for Team E0
 --------------------------------------------------------------------------------
--164 pt//round: E0(P0) "Collude"
+-163 pt//round: E0(P0) "Collude"
 32 pt//ound: cinco(P1) "Collude, Betray Selectively"
 CCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
 CCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
 
-CcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
-CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
+CcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCC
+CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCC
 
 --------------------------------------------------------------------------------
 -334 pt//round: E0(P0) "Collude"
@@ -169,50 +169,50 @@ CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
 CccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCc
 CBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCB
 
-cCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCcc
-BCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBB
+cCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccC
+BCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBC
+
+ccCccCccCcc
+BBCBBCBBCBB
 
 --------------------------------------------------------------------------------
--123 pt//round: E0(P0) "Collude"
+-124 pt//round: E0(P0) "Collude"
 24 pt//ound: cinco(P3) "Collude but retaliate"
 CCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCC
 CCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCC
 
-cCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCC
-BCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCC
+cCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcC
+BCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBC
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 Section 3 - Game Data for Team cinco
 --------------------------------------------------------------------------------
 32 pt//round: cinco(P1) "Collude, Betray Selectively"
--164 pt//ound: E0(P0) "Collude"
+-163 pt//ound: E0(P0) "Collude"
 CCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
 CCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
 
-CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBC
-CcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcC
+CBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCCBCC
+CcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCCcCC
 
 --------------------------------------------------------------------------------
--215 pt//round: cinco(P1) "Collude, Betray Selectively"
--215 pt//ound: cinco(P2) "Collude every 3rd"
+-218 pt//round: cinco(P1) "Collude, Betray Selectively"
+-213 pt//ound: cinco(P2) "Collude every 3rd"
 CcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBc
 CBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcB
 
-bBcbBcbBcbBcbBcbBcbBcbBcbB
-bcBbcBbcBbcBbcBbcBbcBbcBbc
+bBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBc
+bcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcB
 
 --------------------------------------------------------------------------------
--63 pt//round: cinco(P1) "Collude, Betray Selectively"
+-62 pt//round: cinco(P1) "Collude, Betray Selectively"
 -210 pt//ound: cinco(P3) "Collude but retaliate"
 CCCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBC
 CCCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccC
 
-cBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCB
-BcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCc
-
-cBBCcBCCbBCBcBBCcBCCbBCBcBBCcBC
-BccCBcCCbcCcBccCBcCCbcCcBccCBcC
+cBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbB
+BcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbc
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -223,58 +223,64 @@ Section 3 - Game Data for Team cinco
 CBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCB
 CccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCc
 
-BCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBB
-cCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCcc
+BCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBCBBC
+cCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccCccC
+
+BBCBBCBBCBB
+ccCccCccCcc
 
 --------------------------------------------------------------------------------
--215 pt//round: cinco(P2) "Collude every 3rd"
--215 pt//ound: cinco(P1) "Collude, Betray Selectively"
+-213 pt//round: cinco(P2) "Collude every 3rd"
+-218 pt//ound: cinco(P1) "Collude, Betray Selectively"
 CBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcB
 CcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBc
 
-bcBbcBbcBbcBbcBbcBbcBbcBbc
-bBcbBcbBcbBcbBcbBcbBcbBcbB
+bcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcBbcB
+bBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBcbBc
 
 --------------------------------------------------------------------------------
--31 pt//round: cinco(P2) "Collude every 3rd"
+-34 pt//round: cinco(P2) "Collude every 3rd"
 -282 pt//ound: cinco(P3) "Collude but retaliate"
 CBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCB
 CccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCc
 
-bCBBcBBCbBCBbCBBcBBCbBC
-bCccBccCbcCcbCccBccCbcC
+bCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBC
+bCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccC
+
+bBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBc
+bcCcbCccBccCbcCcbCccBccCbcCcbCccB
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 Section 3 - Game Data for Team cinco
 --------------------------------------------------------------------------------
 24 pt//round: cinco(P3) "Collude but retaliate"
--123 pt//ound: E0(P0) "Collude"
+-124 pt//ound: E0(P0) "Collude"
 CCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCC
 CCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCC
 
-BCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCC
-cCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCC
+BCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBCCCBC
+cCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcCCCcC
 
 --------------------------------------------------------------------------------
 -210 pt//round: cinco(P3) "Collude but retaliate"
--63 pt//ound: cinco(P1) "Collude, Betray Selectively"
+-62 pt//ound: cinco(P1) "Collude, Betray Selectively"
 CCCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccC
 CCCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBC
 
-BcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCc
-cBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCB
-
-BccCBcCCbcCcBccCBcCCbcCcBccCBcC
-cBBCcBCCbBCBcBBCcBCCbBCBcBBCcBC
+BcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbcCcBccCBcCCbc
+cBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbBCBcBBCcBCCbB
 
 --------------------------------------------------------------------------------
 -282 pt//round: cinco(P3) "Collude but retaliate"
--31 pt//ound: cinco(P2) "Collude every 3rd"
+-34 pt//ound: cinco(P2) "Collude every 3rd"
 CccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCc
 CBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCB
 
-bCccBccCbcCcbCccBccCbcC
-bCBBcBBCbBCBbCBBcBBCbBC
+bCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccCbcCcbCccBccC
+bCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBcBBC
+
+bcCcbCccBccCbcCcbCccBccCbcCcbCccB
+bBCBbCBBcBBCbBCBbCBBcBBCbBCBbCBBc
 
 --------------------------------------------------------------------------------
